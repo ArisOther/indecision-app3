@@ -49,7 +49,7 @@ var onMakeDecision = function onMakeDecision() {
 
 var dataKaryawan = {
   nama: 'aris winandi',
-  alamat: 'tuban w',
+  alamat: 'semarang',
   jabatan: 'manager',
   usia: 18,
   usiaMax: 32

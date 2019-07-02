@@ -56,7 +56,7 @@ const onMakeDecision = () => {
 //variabel data sumber 'data karyawan'/sumber input data
 var dataKaryawan = {
     nama:'aris winandi',
-    alamat:'tuban w',
+    alamat:'semarang',
     jabatan:'manager',
     usia: 18,
     usiaMax:32

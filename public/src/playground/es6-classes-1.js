@@ -75,7 +75,7 @@ class homeLoc extends Person {
 }
 
 //pemanggilan class dengan parameter lengkap
-const write = new Student('aris winandi', 26,'Matematika');
+const write = new Student('aris winandi', 27,'Matematika');
 console.log(write.getDescription());
 
 //pemanggilan class dengan parameter kosong

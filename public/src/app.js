@@ -23,7 +23,7 @@ console.log('hello world');
 //JSX - Javascript XML versi git
 
 var app = {
-    title : 'Indecision App',
+    title : 'Indecision App1',
     subtitle : 'serahkan nyawamu',
     options : ['one','two']
 }

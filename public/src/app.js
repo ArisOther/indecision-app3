@@ -20,7 +20,7 @@ console.log('hello world');
 
 
 
-//JSX - Javascript XML
+//JSX - Javascript XML versi git
 
 var app = {
     title : 'Indecision App',

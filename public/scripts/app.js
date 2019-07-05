@@ -1,118 +1,167 @@
 "use strict";
 
-console.log('hello world'); //menggunakan function
-//--fungsi alamat
-//menggunakan if statement (if...else...)
-//--fungsi alamat: getAlamat(alamatku), kondisi 'alamatku' harus terisi. dalam bentuk apapun. misalnya,dibawah ini mengambil 'dataKaryawan.Alamat' sebagai isi dari kondisi
-//--IF 'alamatku' terpenuhi/terisi maka return/ditampilkan 'alamatku' itu sendiri
-//--ELSE 'alamatku' tidak terpenuhi/kosong, maka return/ditampilkan string 'tidak diketahui'
-//menggunakan conditional (ternary) operator
-//--variablename = (condition) ? value1:value2 
-//--templateTwo = dataKaryawan.nama ? dataKaryawan.nama : 'tidak diketahui'
-//--IF 'dataKaryawan.nama' eksis, maka value1= terisi 'dataKaryawan.nama' itu sendiri, dan jika tidak eksis, value2='tidak diketahui'
-// menggunakan logical && operator
-//template1
-//Hanya me render subtitle (dan 'p' tag) jika subtitle eksis - 
-//merender p tag baru - jika options.length > 3 (array) maka muncul "ini dia pilihanmu", jika kurang dari itu muncul "ndak ada pilihan"
-//JSX - Javascript XML versi git
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var app = {
-  title: 'Indecision App1',
-  subtitle: 'serahkan nyawamu',
-  options: ['one', 'two'] //Fungsi untuk mengecek input
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-};
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-var onFormSubmit = function onFormSubmit(e) {
-  e.preventDefault();
-  var option = e.target.elements.option.value;
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-  if (option) {
-    app.options.push(option);
-    e.target.elements.option.value = '';
-    render();
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+// npx babel public/src/app.js --out-file=public/scripts/app.js --presets=@babel/env,@babel/react --watch
+var IndecisionApp =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(IndecisionApp, _React$Component);
+
+  function IndecisionApp() {
+    _classCallCheck(this, IndecisionApp);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IndecisionApp).apply(this, arguments));
   }
-};
 
-var onRemoveAll = function onRemoveAll() {
-  app.options = [];
-  render();
-};
+  _createClass(IndecisionApp, [{
+    key: "render",
+    value: function render() {
+      //Deklarasi semua variabel yg akan di gunakan semua class=======
+      var title = 'ini adalah judul';
+      var subtitle = 'ini adlaah subtitle';
+      var options = ['satu', 'dua', 'tiga']; //Deklarasi component2 yang ingin ditampilkan=========
+      //setiap component mempunyai deklarasi props, mengambil dr variabel diatas
+      //deklarasi props ini yg kemudian diambil sbg variabel dan diolah oleh  backend/class masing2 component
 
-var onMakeDecision = function onMakeDecision() {
-  var randomNum = Math.floor(Math.random() * app.options.length);
-  var option = app.options[randomNum];
-  alert(option);
-  console.log(randomNum);
-}; //variabel data sumber 'data karyawan'/sumber input data
+      return React.createElement("div", null, React.createElement(Header, {
+        title: title,
+        subtitle: subtitle
+      }), React.createElement(Actions, null), React.createElement(Options, {
+        options: options
+      }), React.createElement(AddOptions, null));
+    }
+  }]);
 
-
-var dataKaryawan = {
-  nama: 'aris winandi',
-  alamat: 'semarang',
-  jabatan: 'manager',
-  usia: 18,
-  usiaMax: 32
-}; //program counter manual
-//fungsi perhitungan------------------------------------------------------
-
-var hitung = 0;
-
-var penambahan = function penambahan() {
-  hitung++;
-  renderTemplate4();
-};
-
-var pengurangan = function pengurangan() {
-  hitung--;
-  renderTemplate4();
-};
-
-var reset = function reset() {
-  hitung = 0;
-  renderTemplate4();
-}; //-------------------------------------------------------------------------
-//fungsi alamat. ---------------------------------------------------------------
+  return IndecisionApp;
+}(React.Component); //=============================================================================
 
 
-function getAlamat(alamatku) {
-  if (alamatku) {
-    return alamatku;
-  } else {
-    return 'tidak diketahui';
+var Header =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(Header, _React$Component2);
+
+  function Header() {
+    _classCallCheck(this, Header);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Header).apply(this, arguments));
   }
-}
 
-function getUsiamax(usiaMaksimal) {
-  if (usiaMaksimal < 18 || usiaMaksimal >= 35) {
-    return 'usia tidak memenuhi syarat';
-  } else {
-    return usiaMaksimal;
+  _createClass(Header, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null, React.createElement("h1", null, this.props.title), React.createElement("p", null, this.props.subtitle));
+    }
+  }]);
+
+  return Header;
+}(React.Component);
+
+var Actions =
+/*#__PURE__*/
+function (_React$Component3) {
+  _inherits(Actions, _React$Component3);
+
+  function Actions() {
+    _classCallCheck(this, Actions);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Actions).apply(this, arguments));
   }
-} //--------------------------------------------------------------------------------
-//data yang di render-------------------------------------------------------------
-//----------------------------------------------------
 
+  _createClass(Actions, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null, React.createElement("button", null, "ini adlah tombol"));
+    }
+  }]);
 
-var appRoot = document.getElementById('app'); //jangan sampai salah posisi
+  return Actions;
+}(React.Component);
 
-var render = function render() {
-  var template1 = React.createElement("div", null, React.createElement("h1", null, app.title), app.subtitle && React.createElement("p", null, app.subtitle), React.createElement("p", null, app.options.length > 0 ? 'inilah pilihanmu' : 'ndak ada pilihan'), React.createElement("p", null, app.options.length), React.createElement("button", {
-    disabled: false,
-    onClick: onMakeDecision
-  }, "Apa yang harus aku lakukan"), React.createElement("button", {
-    onClick: onRemoveAll
-  }, "Remove All"), React.createElement("ol", null, app.options.map(function (option) {
-    return React.createElement("li", {
-      key: option
-    }, option);
-  })), React.createElement("form", {
-    onSubmit: onFormSubmit
-  }, React.createElement("input", {
-    type: "text",
-    name: "option"
-  }), React.createElement("button", null, "add Item")));
-  ReactDOM.render(template1, appRoot); //jangan sampai salah posisi
-};
+var Options =
+/*#__PURE__*/
+function (_React$Component4) {
+  _inherits(Options, _React$Component4);
 
-render();
+  function Options() {
+    _classCallCheck(this, Options);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Options).apply(this, arguments));
+  }
+
+  _createClass(Options, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null, this.props.options.map(function (option) {
+        return React.createElement(Option, {
+          key: option,
+          optionText: option
+        });
+      }));
+    }
+  }]);
+
+  return Options;
+}(React.Component);
+
+var Option =
+/*#__PURE__*/
+function (_React$Component5) {
+  _inherits(Option, _React$Component5);
+
+  function Option() {
+    _classCallCheck(this, Option);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Option).apply(this, arguments));
+  }
+
+  _createClass(Option, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null, this.props.optionText);
+    }
+  }]);
+
+  return Option;
+}(React.Component);
+
+var AddOptions =
+/*#__PURE__*/
+function (_React$Component6) {
+  _inherits(AddOptions, _React$Component6);
+
+  function AddOptions() {
+    _classCallCheck(this, AddOptions);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(AddOptions).apply(this, arguments));
+  }
+
+  _createClass(AddOptions, [{
+    key: "render",
+    value: function render() {
+      return React.createElement("div", null, "ini adalah addoption");
+    }
+  }]);
+
+  return AddOptions;
+}(React.Component);
+
+var jsx = React.createElement("div", null, React.createElement(Header, null), React.createElement(Actions, null), React.createElement(Options, null), React.createElement(AddOptions, null));
+ReactDOM.render(React.createElement(IndecisionApp, null), document.getElementById('app'));

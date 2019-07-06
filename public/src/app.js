@@ -4,7 +4,7 @@ class IndecisionApp extends React.Component{
     render(){
         //Deklarasi semua variabel yg akan di gunakan semua class=======
         const title = 'ini adalah judul';
-        const subtitle = 'ini adlaah subtitle';
+        const subtitle = 'ini adlaah subtitleku';
         const options = ['satu','dua','tiga'];
         
         //Deklarasi component2 yang ingin ditampilkan=========
@@ -16,7 +16,8 @@ class IndecisionApp extends React.Component{
                 <Header title={title} subtitle={subtitle} />
                 <Actions/>
                 <Options options={options}/>
-                <AddOptions/>
+                
+                <AddOption/>
             </div>
         )
     }
@@ -29,26 +30,58 @@ class Header extends React.Component{
         <div>
             <h1>{this.props.title}</h1>
             <p>{this.props.subtitle}</p>
+
         </div>
         ) 
+    
     }
 }
 
 class Actions extends React.Component{
+    
+
+    handlePick(){
+        alert ('ini adalah handle pick');
+        }
+    
+    
     render(){
         return (
             <div>
-                <button>ini adlah tombol</button>
+                <button onClick={this.handlePick}> ini adlah tombol</button>
+                
             </div>
         );
+    }
+
+    
+
+    
+}
+
+
+
+class RemoveAll extends React.Component{
+    
+
+    render(){
+        return (
+            <div>
+                
+            </div>
+        )
     }
 }
 
 
 class Options extends React.Component{
+    handleRemoveAll(){
+        alert('remove all');
+    }
     render(){
        return (
         <div>
+            <button onClick={this.handleRemoveAll}>remove all</button>
             {this.props.options.map((option) => <Option key={option} optionText={option}/>)}
         </div>
        ); 
@@ -65,11 +98,23 @@ class Option extends React.Component{
     }
 }
 
-class AddOptions extends React.Component{
+class AddOption extends React.Component{
+    handleAddOption(e){
+        e.preventDefault();
+
+   const option = e.target.elements.option.value.trim();
+   if(option){
+    alert(option);
+   }
+    }
+
     render(){
         return (
             <div>
-                ini adalah addoption
+                <form onSubmit={this.handleAddOption}>
+                    <input type="text" name="option"/>
+                    <button>SUBMIT</button>
+                </form>
             </div>
         )
     }
@@ -81,7 +126,7 @@ const jsx = (
         <Header />
         <Actions/>
         <Options/>
-        <AddOptions/>
+        <AddOption/>
 
     </div> 
 );
